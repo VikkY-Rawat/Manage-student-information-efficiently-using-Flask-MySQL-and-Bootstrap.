@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="text-center mb-4">All Student Records</h3>
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s[0] }}</td>
+            <td>{{ s[1] }}</td>
+            <td>{{ s[2] }}</td>
+            <td>{{ s[3] }}</td>
+            <td>
+                <a href="/update/{{ s[0] }}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="/delete/{{ s[0] }}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
